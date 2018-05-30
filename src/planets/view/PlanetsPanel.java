@@ -1,5 +1,6 @@
 package planets.view;
 
-public class PlanetsPanel {
+public class PlanetsPanel 
+{
 
 }

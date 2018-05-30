@@ -1,5 +1,6 @@
 package planets.controller;
 
-public class PlanetsController {
+public class PlanetsController 
+{
 
 }
