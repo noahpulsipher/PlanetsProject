@@ -1,6 +1,6 @@
 package planets.model;
 
-public class Mars extends Planets
+public class Mars extends Planets implements Rock
 {
 	public Mars()
 	{
@@ -10,11 +10,17 @@ public class Mars extends Planets
 	
 	protected void setup()
 	{
-		this.setDiameter(diameter);
-		this.setDistance(distance);
-		this.setMoons(moons);
-		this.setName(name);
-		this.setNumber(number);
-		this.setOrbit(orbit);
+		this.setDiameter(4212);
+		this.setDistance(33926867);
+		this.setMoons(2);
+		this.setName("Mars");
+		this.setNumber(4);
+		this.setOrbit(1.88);
+	}
+	
+	public boolean hasLife()
+	{
+		
+		return false;
 	}
 }

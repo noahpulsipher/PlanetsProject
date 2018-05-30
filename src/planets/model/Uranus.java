@@ -1,6 +1,6 @@
 package planets.model;
 
-public class Uranus extends Planets
+public class Uranus extends Planets implements Gas
 {
 	public Uranus()
 	{
@@ -10,11 +10,11 @@ public class Uranus extends Planets
 	
 	protected void setup()
 	{
-		this.setDiameter(diameter);
-		this.setDistance(distance);
-		this.setMoons(moons);
-		this.setName(name);
-		this.setNumber(number);
-		this.setOrbit(orbit);
+		this.setDiameter(31518);
+		this.setDistance(1615565100);
+		this.setMoons(27);
+		this.setName("Uranus");
+		this.setNumber(7);
+		this.setOrbit(84.00);
 	}
 }

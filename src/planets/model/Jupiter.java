@@ -1,6 +1,6 @@
 package planets.model;
 
-public class Jupiter extends Planets
+public class Jupiter extends Planets implements Gas
 {
 	public Jupiter()
 	{
@@ -10,11 +10,11 @@ public class Jupiter extends Planets
 	
 	protected void setup()
 	{
-		this.setDiameter(diameter);
-		this.setDistance(distance);
-		this.setMoons(moons);
-		this.setName(name);
-		this.setNumber(number);
-		this.setOrbit(orbit);
+		this.setDiameter(86881);
+		this.setDistance(365366261);
+		this.setMoons(53);
+		this.setName("Jupiter");
+		this.setNumber(5);
+		this.setOrbit(12);
 	}
 }

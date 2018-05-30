@@ -1,6 +1,6 @@
 package planets.model;
 
-public class Saturn extends Planets
+public class Saturn extends Planets implements Gas
 {
 	public Saturn()
 	{
@@ -10,11 +10,11 @@ public class Saturn extends Planets
 	
 	protected void setup()
 	{
-		this.setDiameter(diameter);
-		this.setDistance(distance);
-		this.setMoons(moons);
-		this.setName(name);
-		this.setNumber(number);
-		this.setOrbit(orbit);
+		this.setDiameter(72367);
+		this.setDistance(745645431);
+		this.setMoons(53);
+		this.setName("Saturn");
+		this.setNumber(6);
+		this.setOrbit(29.0);
 	}
 }

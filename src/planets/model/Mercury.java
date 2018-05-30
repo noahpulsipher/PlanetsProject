@@ -1,6 +1,6 @@
 package planets.model;
 
-public class Mercury extends Planets
+public class Mercury extends Planets implements Rock
 {
 	public Mercury()
 	{
@@ -10,11 +10,17 @@ public class Mercury extends Planets
 	
 	protected void setup()
 	{
-		this.setDiameter(diameter);
-		this.setDistance(distance);
-		this.setMoons(moons);
-		this.setName(name);
-		this.setNumber(number);
-		this.setOrbit(orbit);
+		this.setDiameter(3032);
+		this.setDistance(48000000);
+		this.setMoons(0);
+		this.setName("Mercury");
+		this.setNumber(1);
+		this.setOrbit(88.0);
+	}
+	
+	public boolean hasLife()
+	{
+		
+		return false;
 	}
 }

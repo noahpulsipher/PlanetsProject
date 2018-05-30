@@ -1,6 +1,6 @@
 package planets.model;
 
-public class Neptune extends Planets
+public class Neptune extends Planets implements Gas
 {
 	public Neptune()
 	{
@@ -10,11 +10,11 @@ public class Neptune extends Planets
 	
 	protected void setup()
 	{
-		this.setDiameter(diameter);
-		this.setDistance(distance);
-		this.setMoons(moons);
-		this.setName(name);
-		this.setNumber(number);
-		this.setOrbit(orbit);
+		this.setDiameter(30599);
+		this.setDistance(270000000);
+		this.setMoons(14);
+		this.setName("Neptune");
+		this.setNumber(8);
+		this.setOrbit(165);
 	}
 }

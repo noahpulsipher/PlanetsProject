@@ -1,6 +1,6 @@
 package planets.model;
 
-public class Earth extends Planets
+public class Earth extends Planets implements Rock
 {
 	public Earth()
 	{
@@ -10,11 +10,17 @@ public class Earth extends Planets
 	
 	protected void setup()
 	{
-		this.setDiameter(diameter);
-		this.setDistance(distance);
-		this.setMoons(moons);
-		this.setName(name);
-		this.setNumber(number);
-		this.setOrbit(orbit);
+		this.setDiameter(7918);
+		this.setDistance(0);
+		this.setMoons(1);
+		this.setName("Earth");
+		this.setNumber(3);
+		this.setOrbit(1.0);
+	}
+	
+	public boolean hasLife()
+	{
+		
+		return true;
 	}
 }
