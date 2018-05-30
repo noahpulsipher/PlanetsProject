@@ -1,5 +1,6 @@
 package planets.model;
 
-public class Uranus {
+public class Uranus 
+{
 
 }
