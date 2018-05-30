@@ -44,27 +44,64 @@ public class PlanetsPanel extends JPanel
 		appLayout = new SpringLayout();
 		distanceLabel = new JLabel("Distance from earth:");	
 		diameterLabel = new JLabel("Diameter:");
+		appLayout.putConstraint(SpringLayout.NORTH, distanceLabel, 3, SpringLayout.SOUTH, diameterLabel);
 		nameLabel = new JLabel("Name:");
-		numberLabel = new JLabel("Number from sun:");
+		appLayout.putConstraint(SpringLayout.NORTH, nameLabel, 3, SpringLayout.NORTH, this);
 		moonsLabel = new JLabel("Number of moons:");
+		appLayout.putConstraint(SpringLayout.NORTH, moonsLabel, 3, SpringLayout.SOUTH, distanceLabel);
 		orbitLabel = new JLabel("1 orbit is:");
+		appLayout.putConstraint(SpringLayout.NORTH, orbitLabel, 3, SpringLayout.SOUTH, moonsLabel);
 		
-		iconLabel = new JLabel("", new ImageIcon(getClass().getResource("/pokemon/view/images/Pokemon Default.png")), JLabel.CENTER);
+		iconLabel = new JLabel("", new ImageIcon(getClass().getResource("/planets/view/images/solar system.jpg")), JLabel.CENTER);
+		appLayout.putConstraint(SpringLayout.WEST, orbitLabel, 3, SpringLayout.EAST, iconLabel);
+		appLayout.putConstraint(SpringLayout.WEST, moonsLabel, 3, SpringLayout.EAST, iconLabel);
+		appLayout.putConstraint(SpringLayout.WEST, distanceLabel, 3, SpringLayout.EAST, iconLabel);
+		appLayout.putConstraint(SpringLayout.WEST, diameterLabel, 3, SpringLayout.EAST, iconLabel);
+		appLayout.putConstraint(SpringLayout.WEST, nameLabel, 3, SpringLayout.EAST, iconLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, iconLabel, 3, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, iconLabel, 3, SpringLayout.WEST, this);
 		
 		moonsField = new JTextField();
+		appLayout.putConstraint(SpringLayout.NORTH, moonsField, 0, SpringLayout.NORTH, moonsLabel);
+		appLayout.putConstraint(SpringLayout.WEST, moonsField, 3, SpringLayout.EAST, moonsLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, moonsField, 0, SpringLayout.SOUTH, moonsLabel);
+		appLayout.putConstraint(SpringLayout.EAST, moonsField, 35, SpringLayout.EAST, moonsLabel);
 		nameField = new JTextField();
+		appLayout.putConstraint(SpringLayout.NORTH, nameField, 0, SpringLayout.NORTH, nameLabel);
+		appLayout.putConstraint(SpringLayout.WEST, nameField, 3, SpringLayout.EAST, nameLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, nameField, 0, SpringLayout.SOUTH, nameLabel);
+		appLayout.putConstraint(SpringLayout.EAST, nameField, 50, SpringLayout.EAST, nameLabel);
 		numberField = new JTextField();
 		diameterField = new JTextField();
+		appLayout.putConstraint(SpringLayout.NORTH, diameterField, 0, SpringLayout.NORTH, diameterLabel);
+		appLayout.putConstraint(SpringLayout.WEST, diameterField, 3, SpringLayout.EAST, diameterLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, diameterField, 0, SpringLayout.SOUTH, diameterLabel);
+		appLayout.putConstraint(SpringLayout.EAST, diameterField, 60, SpringLayout.EAST, diameterLabel);
 		distanceField = new JTextField();
+		appLayout.putConstraint(SpringLayout.NORTH, distanceField, 0, SpringLayout.NORTH, distanceLabel);
+		appLayout.putConstraint(SpringLayout.WEST, distanceField, 3, SpringLayout.EAST, distanceLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, distanceField, 0, SpringLayout.SOUTH, distanceLabel);
+		appLayout.putConstraint(SpringLayout.EAST, distanceField, 125, SpringLayout.EAST, distanceLabel);
 		orbitField = new JTextField();
+		appLayout.putConstraint(SpringLayout.NORTH, orbitField, 0, SpringLayout.NORTH, orbitLabel);
+		appLayout.putConstraint(SpringLayout.WEST, orbitField, 0, SpringLayout.EAST, orbitLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, orbitField, 0, SpringLayout.SOUTH, orbitLabel);
 		
 		descriptionArea = new JTextArea();
 		typeArea = new JTextArea();
 		
 		saveButton = new JButton("Save");
+		appLayout.putConstraint(SpringLayout.WEST, saveButton, 3, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, saveButton, -3, SpringLayout.SOUTH, this);
 		clearButton = new JButton("Clear");
+		appLayout.putConstraint(SpringLayout.WEST, clearButton, 3, SpringLayout.EAST, saveButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, clearButton, -3, SpringLayout.SOUTH, this);
 		planetDropdown = new JComboBox();
 		firstType = new JLabel();
+		appLayout.putConstraint(SpringLayout.NORTH, firstType, 0, SpringLayout.NORTH, saveButton);
+		appLayout.putConstraint(SpringLayout.WEST, firstType, 3, SpringLayout.EAST, clearButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, firstType, -3, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, firstType, -250, SpringLayout.EAST, this);
 		
 		setupComboBox();
 		setupTypePanels();
@@ -92,6 +129,14 @@ public class PlanetsPanel extends JPanel
 		this.add(orbitLabel);
 		this.add(distanceLabel);
 		this.add(nameLabel);
+		numberLabel = new JLabel("Number from sun:");
+		appLayout.putConstraint(SpringLayout.EAST, numberField, 30, SpringLayout.EAST, numberLabel);
+		appLayout.putConstraint(SpringLayout.WEST, numberLabel, 3, SpringLayout.EAST, iconLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, numberField, 0, SpringLayout.NORTH, numberLabel);
+		appLayout.putConstraint(SpringLayout.WEST, numberField, 3, SpringLayout.EAST, numberLabel);
+		appLayout.putConstraint(SpringLayout.SOUTH, numberField, 0, SpringLayout.SOUTH, numberLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, diameterLabel, 3, SpringLayout.SOUTH, numberLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, numberLabel, 3, SpringLayout.SOUTH, nameLabel);
 		this.add(numberLabel);
 		this.add(moonsLabel);
 		this.add(diameterLabel);
@@ -143,7 +188,7 @@ public class PlanetsPanel extends JPanel
 		String path = "/planets/view/images/";
 		String defaultName = "Planet Default";
 		String name = planetDropdown.getSelectedItem().toString();
-		String extension = ".png";
+		String extension = ".jpg";
 		ImageIcon planetIcon;
 		
 		try
