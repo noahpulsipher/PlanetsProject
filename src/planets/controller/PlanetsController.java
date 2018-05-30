@@ -21,7 +21,14 @@ public class PlanetsController
 	
 	public void buildPlanetList()
 	{
-
+		planetList.add(new Sun());
+		planetList.add(new Mercury());
+		planetList.add(new Venus());
+		planetList.add(new Earth());
+		planetList.add(new Mars());
+		planetList.add(new Jupiter());
+		planetList.add(new Neptune());
+		planetList.add(new Uranus());
 	}
 	
 	public List<Planets> getPlanetList()
@@ -65,7 +72,7 @@ public class PlanetsController
 		return names;
 	}
 	
-	public void updateSelected(int selection, int health, int attack, boolean evolve, double modify, String name)
+	public void updateSelected(int selection, int distance, int moons, int diameter, double orbit, String name)
 	{
 		Planets selected = planetList.get(selection);
 		

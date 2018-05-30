@@ -1,10 +1,10 @@
 package planets.model;
 
-public class Venus extends Planets
+public class Saturn extends Planets
 {
-	public Venus()
+	public Saturn()
 	{
-		super(2, "Venus");
+		super(6, "Saturn");
 		setup();
 	}
 	
