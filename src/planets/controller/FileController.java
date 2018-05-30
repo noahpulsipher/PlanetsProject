@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 public class FileController
 {
-	public static void saveplanetsToFile(ArrayList<Planets> pokedex)
+	public static void savePlanetsToFile(ArrayList<Planets> pokedex)
 	{
 		File saveFile = new File("Saved Planets.txt");
 		try

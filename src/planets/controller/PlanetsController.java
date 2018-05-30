@@ -1,7 +1,7 @@
 package planets.controller;
 
 import planets.model.*;
-import planets.view.planetsFrame;
+import planets.view.PlanetsFrame;
 
 import java.util.List;
 import java.util.ArrayList;
