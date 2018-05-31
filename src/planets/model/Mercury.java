@@ -15,7 +15,7 @@ public class Mercury extends Planets implements Rock
 		this.setMoons(0);
 		this.setName("Mercury");
 		this.setNumber(1);
-		this.setOrbit(88.0);
+		this.setOrbit(0.241);
 	}
 	
 	public boolean hasLife()

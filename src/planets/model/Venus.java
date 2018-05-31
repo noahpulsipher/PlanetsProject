@@ -15,7 +15,7 @@ public class Venus extends Planets implements Rock
 		this.setMoons(0);
 		this.setName("Venus");
 		this.setNumber(2);
-		this.setOrbit(225.0);
+		this.setOrbit(0.62);
 	}
 	
 	public boolean hasLife()

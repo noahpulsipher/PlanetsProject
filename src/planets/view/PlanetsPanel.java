@@ -58,11 +58,13 @@ public class PlanetsPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, iconLabel, 8, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, iconLabel, 8, SpringLayout.WEST, this);
 		moonsField = new JTextField();
+		appLayout.putConstraint(SpringLayout.EAST, moonsField, 23, SpringLayout.EAST, moonsLabel);
 		nameField = new JTextField();
 		numberField = new JTextField();
 		diameterField = new JTextField();
 		distanceField = new JTextField();
 		orbitField = new JTextField();
+		appLayout.putConstraint(SpringLayout.EAST, orbitField, 41, SpringLayout.EAST, orbitLabel);
 
 		descriptionArea = new JTextArea();
 		appLayout.putConstraint(SpringLayout.WEST, descriptionArea, 8, SpringLayout.WEST, this);
@@ -191,7 +193,6 @@ public class PlanetsPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, distanceLabel2, 3, SpringLayout.EAST, distanceField);
 		appLayout.putConstraint(SpringLayout.NORTH, orbitLabel2, 0, SpringLayout.NORTH, orbitLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, orbitLabel2, 0, SpringLayout.SOUTH, orbitLabel);
-		appLayout.putConstraint(SpringLayout.EAST, orbitField, 34, SpringLayout.EAST, orbitLabel);
 		appLayout.putConstraint(SpringLayout.WEST, orbitLabel2, 3, SpringLayout.EAST, orbitField);
 		appLayout.putConstraint(SpringLayout.NORTH, firstType, 0, SpringLayout.NORTH, typeArea);
 		appLayout.putConstraint(SpringLayout.WEST, firstType, 3, SpringLayout.EAST, typeArea);
@@ -207,7 +208,6 @@ public class PlanetsPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, moonsField, 0, SpringLayout.NORTH, moonsLabel);
 		appLayout.putConstraint(SpringLayout.WEST, moonsField, 3, SpringLayout.EAST, moonsLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, moonsField, 0, SpringLayout.SOUTH, moonsLabel);
-		appLayout.putConstraint(SpringLayout.EAST, moonsField, 27, SpringLayout.EAST, moonsLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, nameField, 0, SpringLayout.NORTH, nameLabel);
 		appLayout.putConstraint(SpringLayout.WEST, nameField, 3, SpringLayout.EAST, nameLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, nameField, 0, SpringLayout.SOUTH, nameLabel);
