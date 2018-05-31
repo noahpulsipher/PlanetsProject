@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Planets 
 {
-	private int distance;
+	private long distance;
 	private int diameter;
 	private int moons;
 	private int number; //Meaning number from sun
@@ -69,7 +69,7 @@ public abstract class Planets
 		return planetInfo;
 	}
 
-	public int getDistance() {
+	public long getDistance() {
 		return distance;
 	}
 

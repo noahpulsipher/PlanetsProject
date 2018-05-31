@@ -27,8 +27,8 @@ public class PlanetsController
 		planetList.add(new Earth());
 		planetList.add(new Mars());
 		planetList.add(new Jupiter());
-		planetList.add(new Neptune());
 		planetList.add(new Uranus());
+		planetList.add(new Neptune());
 	}
 	
 	public List<Planets> getPlanetList()
