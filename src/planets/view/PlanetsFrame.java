@@ -19,7 +19,7 @@ public class PlanetsFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(appPanel);
-		this.setTitle("CS1400 Pokedex");
+		this.setTitle("Planet Guide");
 		this.setResizable(true);
 		this.setSize(500, 500);
 		this.setVisible(true);

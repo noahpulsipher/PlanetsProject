@@ -36,7 +36,8 @@ public class PlanetsPanel extends JPanel
 	private JButton clearButton;
 	private JComboBox planetDropdown;
 	
-	private JLabel firstType;
+	private JScrollPane planetScroll;
+	
 	
 	public PlanetsPanel(PlanetsController appController)
 	{
@@ -66,8 +67,10 @@ public class PlanetsPanel extends JPanel
 		orbitField = new JTextField();
 		appLayout.putConstraint(SpringLayout.EAST, orbitField, 41, SpringLayout.EAST, orbitLabel);
 
+		planetScroll = new JScrollPane();
+		
 		descriptionArea = new JTextArea();
-		appLayout.putConstraint(SpringLayout.WEST, descriptionArea, 8, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, planetScroll, 8, SpringLayout.WEST, this);
 		typeArea = new JTextArea();
 		
 		saveButton = new JButton("Save");
@@ -77,25 +80,18 @@ public class PlanetsPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, clearButton, -8, SpringLayout.SOUTH, this);
 	
 		planetDropdown = new JComboBox();
-	
-		firstType = new JLabel();
 		
 		setupComboBox();
-		setupTypePanels();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+		setupScrollPane();
 	}
 	
 	private void setupComboBox()
 	{
 		DefaultComboBoxModel planetsModel = new DefaultComboBoxModel(appController.convertPlanetList());
 		planetDropdown.setModel(planetsModel);
-	}
-	
-	private void setupTypePanels()
-	{
-		firstType.setSize(50, 50);
 	}
 	
 	private void setupPanel()
@@ -124,14 +120,14 @@ public class PlanetsPanel extends JPanel
 		this.add(orbitField);
 		this.add(diameterField);
 
-		this.add(descriptionArea);
+		this.add(planetScroll);
 		this.add(typeArea);
+		
+		
 		
 		this.add(saveButton);
 		this.add(clearButton);
 		this.add(planetDropdown);
-		
-		this.add(firstType);
 		}
 	
 	private void updateTypePanels()
@@ -139,23 +135,35 @@ public class PlanetsPanel extends JPanel
 		String[] types = appController.getPlanetList().get(planetDropdown.getSelectedIndex()).getPlanetsTypes();
 		if (types[0].equals("Star"))
 		{
-			firstType.setBackground(Color.YELLOW);
-			firstType.setText("Star");
+			typeArea.setBackground(Color.YELLOW);
+			typeArea.setText("Star");
 		}
 		else if(types[0].equals("Rock"))
 		{
-			firstType.setBackground(Color.lightGray);
-			firstType.setText("Rock");
+			typeArea.setBackground(Color.darkGray);
+			typeArea.setText("Rock");
 		}
 		else if (types[0].equals("Gas"))
 		{
-			firstType.setBackground(Color.GREEN);
-			firstType.setText("Gas");
+			typeArea.setBackground(Color.GREEN);
+			typeArea.setText("Gas");
 		}
 		else
 		{
-			firstType.setBackground(Color.white);
+			typeArea.setBackground(Color.white);
 		}
+	}
+	
+	private void setupScrollPane()
+	{
+		planetScroll.setViewportView(descriptionArea);
+		planetScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		planetScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		planetScroll.setBackground(Color.LIGHT_GRAY);
+		descriptionArea.setBackground(Color.LIGHT_GRAY);
+		descriptionArea.setEditable(false);
+		descriptionArea.setLineWrap(true);
+		descriptionArea.setWrapStyleWord(true);
 	}
 	
 	private void updateImage()
@@ -194,10 +202,6 @@ public class PlanetsPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, orbitLabel2, 0, SpringLayout.NORTH, orbitLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, orbitLabel2, 0, SpringLayout.SOUTH, orbitLabel);
 		appLayout.putConstraint(SpringLayout.WEST, orbitLabel2, 3, SpringLayout.EAST, orbitField);
-		appLayout.putConstraint(SpringLayout.NORTH, firstType, 0, SpringLayout.NORTH, typeArea);
-		appLayout.putConstraint(SpringLayout.WEST, firstType, 3, SpringLayout.EAST, typeArea);
-		appLayout.putConstraint(SpringLayout.SOUTH, firstType, 0, SpringLayout.SOUTH, typeArea);
-		appLayout.putConstraint(SpringLayout.EAST, firstType, 60, SpringLayout.EAST, typeArea);
 		appLayout.putConstraint(SpringLayout.NORTH, moonsLabel, 3, SpringLayout.SOUTH, distanceLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, orbitLabel, 3, SpringLayout.SOUTH, moonsLabel);
 		appLayout.putConstraint(SpringLayout.WEST, orbitLabel, 3, SpringLayout.EAST, iconLabel);
@@ -221,14 +225,14 @@ public class PlanetsPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, orbitField, 3, SpringLayout.EAST, orbitLabel);
 		appLayout.putConstraint(SpringLayout.SOUTH, orbitField, 0, SpringLayout.SOUTH, orbitLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, typeArea, 3, SpringLayout.SOUTH, iconLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, descriptionArea, 3, SpringLayout.SOUTH, typeArea);
+		appLayout.putConstraint(SpringLayout.NORTH, planetScroll, 3, SpringLayout.SOUTH, typeArea);
 		appLayout.putConstraint(SpringLayout.WEST, typeArea, 0, SpringLayout.WEST, iconLabel);
-		appLayout.putConstraint(SpringLayout.EAST, descriptionArea, 0, SpringLayout.EAST, iconLabel);
+		appLayout.putConstraint(SpringLayout.EAST, planetScroll, 0, SpringLayout.EAST, iconLabel);
 		appLayout.putConstraint(SpringLayout.EAST, typeArea, 0, SpringLayout.EAST, saveButton);
-		appLayout.putConstraint(SpringLayout.SOUTH, descriptionArea, -3, SpringLayout.NORTH, saveButton);
+		appLayout.putConstraint(SpringLayout.SOUTH, planetScroll, -3, SpringLayout.NORTH, saveButton);
 		appLayout.putConstraint(SpringLayout.WEST, clearButton, 3, SpringLayout.EAST, saveButton);
 		appLayout.putConstraint(SpringLayout.NORTH, planetDropdown, 3, SpringLayout.SOUTH, iconLabel);
-		appLayout.putConstraint(SpringLayout.SOUTH, planetDropdown, -3, SpringLayout.NORTH, descriptionArea);
+		appLayout.putConstraint(SpringLayout.SOUTH, planetDropdown, -3, SpringLayout.NORTH, planetScroll);
 		appLayout.putConstraint(SpringLayout.EAST, planetDropdown, 0, SpringLayout.EAST, iconLabel);
 		appLayout.putConstraint(SpringLayout.NORTH, distanceLabel, 3, SpringLayout.SOUTH, diameterLabel);
 		appLayout.putConstraint(SpringLayout.WEST, numberLabel, 3, SpringLayout.EAST, iconLabel);
@@ -267,7 +271,6 @@ public class PlanetsPanel extends JPanel
 					
 					String name = nameField.getText();
 					
-					//Send to the controller to modify the Pokemon
 					appController.updateSelected(selected, distance, moons, diameter, orbit, name);
 				}
 			}
